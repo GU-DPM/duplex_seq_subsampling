@@ -139,8 +139,10 @@ def CountMutations(o, f, fOut):
               #remove N entries
                 #linebins[4] = linebins[4].replace('N','')
               #remove start line and end line markers
-                linebins[4] = re.sub('\$','',linebins[4])
-                linebins[4] = re.sub('\^.','',linebins[4])
+                #linebins[4] = re.sub('\$','',linebins[4])
+                #linebins[4] = re.sub('\^.','',linebins[4])
+                linebins[4] = re.sub(r'\$', '', linebins[4])
+                linebins[4] = re.sub(r'\^.', '', linebins[4])
          
     #count point mutations
            
