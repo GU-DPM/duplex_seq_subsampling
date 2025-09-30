@@ -53,13 +53,16 @@ def MutPos(o, f, fOut):
           #linebins[4] = linebins[4].replace('N','')      
 
     #count and remove insertions
-          newIns = map(int, re.findall(r'\+\d+', linebins[4]))
+          #newIns = map(int, re.findall(r'\+\d+', linebins[4]))
+          newIns = list(map(int, re.findall(r'\+\d+', linebins[4])))
+
           for length in newIns:
               rmStr = r'\+' + str(length) + "."*length
               linebins[4] = re.sub(rmStr, '', linebins[4])
           
     #count and remove deletions
-          newDels = map(str, re.findall(r'-\d+', linebins[4]))
+          #newDels = map(str, re.findall(r'-\d+', linebins[4]))
+          newDels = list(map(str, re.findall(r'-\d+', linebins[4])))
           for length in newDels:
               length = int(length[1:])
               rmStr = r'-' + str(length) + "."*length
