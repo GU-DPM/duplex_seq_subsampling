@@ -79,7 +79,8 @@ maxSize=0
 #~ hsSscsFile.close()
 #~ sscsOnTarget = 0
 #~ sys.stderr.write("Processing hs_metrics")
-hsDcsFile = open("%s.hs_metrics.txt" % (index), 'rb')
+#hsDcsFile = open("%s.hs_metrics.txt" % (index), 'rb')
+hsDcsFile = open("%s.hs_metrics.txt" % (index), 'r')
 lineCtr=0
 line = hsDcsFile.readline()
 while lineCtr < 7:
@@ -93,7 +94,8 @@ hsDcsFile.close()
 
 sys.stderr.write("Processing countmuts")
 # get countmuts data
-cmFile = open("%s.region.c%s-%s.d%s.countmuts.txt" % (index,c,C,d), 'rb')
+#cmFile = open("%s.region.c%s-%s.d%s.countmuts.txt" % (index,c,C,d), 'rb')
+cmFile = open("%s.region.c%s-%s.d%s.countmuts.txt" % (index,c,C,d), 'r')
 
 AtoT=""
 AtoC=""
