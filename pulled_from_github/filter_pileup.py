@@ -3,7 +3,7 @@
 from sys import argv
 
 # Usage:		 
-# python filter_pileup.py genomic_positions_file.bed pileupfile outputfile Y/N
+#c
 #                                                           
 # Filters a pileup file to include only genomic positions as indicated in bed file.
 # Can also indicate to only filter out those genomic positions in bed file. By indicating
@@ -22,11 +22,14 @@ if remove_reg.lower() == 'y':
 else:
     filter_out = False
 
+#if not filter_out:
+#    print("Creating a filtered pileup using the genomic coordinates contained in %r.") %region_file
+#else:
+#    print("Creating a filtered pileup using the genomic coordinates NOT contained in %r.") %region_file
 if not filter_out:
-    print("Creating a filtered pileup using the genomic coordinates contained in %r.") %region_file
+    print(f"Creating a filtered pileup using the genomic coordinates contained in {region_file!r}.")
 else:
-    print("Creating a filtered pileup using the genomic coordinates NOT contained in %r.") %region_file
-
+    print(f"Creating a filtered pileup using the genomic coordinates NOT contained in {region_file!r}.")
 
 # Read in genomic regions to filter
 regions = []
