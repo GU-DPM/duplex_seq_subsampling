@@ -125,8 +125,12 @@ def main():
         f = open(o.inFile, 'r')
     else:
         f = sys.stdin
-    if o.outFile != None:
-        fOut = open(o.outFile, 'wb')
+    #if o.outFile != None:
+    #    fOut = open(o.outFile, 'wb')
+    #else:
+    #    fOut = sys.stdout
+    if o.outFile is not None:
+        fOut = open(o.outFile, 'w', newline='')
     else:
         fOut = sys.stdout
     
