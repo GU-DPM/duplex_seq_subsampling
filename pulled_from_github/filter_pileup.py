@@ -37,7 +37,8 @@ regions = []
 for line in filter:
     regions.append(line)
 
-print regions
+print(regions)
+
 # Read through pileup file and find lines to keep/discard based on region filter
 for line in pileup:
 
