@@ -37,14 +37,14 @@ regions = []
 for line in filter:
     regions.append(line)
 
-print(regions)
+#print(regions)
 
 # Read through pileup file and find lines to keep/discard based on region filter
 for line in pileup:
 
     test_reg = line.split()
     in_region = False
-    print(test_reg)
+    #print(test_reg)
     for i in regions:
         if (test_reg[0] == i.split("chr")[1].split()[0]) and (int(test_reg[1]) >= int(i.split()[1])) and (int(test_reg[1]) <= int(i.split()[2])):
             # If you'd like to keep those regions in the bed file.
