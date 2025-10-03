@@ -46,7 +46,8 @@ for line in pileup:
     in_region = False
     #print(test_reg)
     for i in regions:
-        if (test_reg[0] == i.split("chr")[1].split()[0]) and (int(test_reg[1]) >= int(i.split()[1])) and (int(test_reg[1]) <= int(i.split()[2])):
+        #if (test_reg[0] == i.split("chr")[1].split()[0]) and (int(test_reg[1]) >= int(i.split()[1])) and (int(test_reg[1]) <= int(i.split()[2])):
+        if (test_reg[0] == i.split()[0]) and (int(test_reg[1]) >= int(i.split()[1])) and (int(test_reg[1]) <= int(i.split()[2])):
             # If you'd like to keep those regions in the bed file.
             in_region = True
             if not filter_out:
