@@ -1,6 +1,7 @@
 import pysam
 from argparse import ArgumentParser
 import sys
+import subprocess
 
 parser = ArgumentParser()
 #~ parser.add_argument('--indexes', dest='inFile', required=True,
@@ -144,15 +145,17 @@ for line in cmFile:
 		GtoT=line.split()[3]
 	elif "G to C" in line:
 		GtoC=line.split()[3]
-	elif "Total nucleotides sequenced:" in line:
-		totalNt = line.strip().split()[3]
+#	elif "Total nucleotides sequenced:" in line:
+#		totalNt = line.strip().split()[3]
 	elif "Total point mutations:" in line:
 		totalMuts = line.strip().split()[3]
 	elif "Total insertion events:" in line:
 		ins=line.strip().split()[3]
 	elif "Total deletion events:" in line:
 		dels=line.strip().split()[3]
-		
+
+totalNt = subprocess.run(['wc', '-l', "%s.region.pileup" % (index)], capture_output=True, text=True)
+
 cmFile.close()
 sys.stdout.write("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n" % (index,rawReads,dcsOnTarget,dcsMeanDepth,dcsMaxDepth,dcsUncovered,totalNt,totalMuts,AtoT,AtoC,AtoG,TtoA,TtoC,TtoG,CtoA,CtoT,CtoG,GtoA,GtoT,GtoC,ins,dels))
             
