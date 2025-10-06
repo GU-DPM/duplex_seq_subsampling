@@ -86,10 +86,14 @@ line = hsDcsFile.readline()
 while lineCtr < 7:
 	line = hsDcsFile.readline()
 	lineCtr += 1
-dcsOnTarget=line.split()[18]
-dcsMeanDepth=line.split()[22]
-dcsMaxDepth=line.split()[24]
-dcsUncovered=line.split()[28]
+#dcsOnTarget=line.split()[18]
+dcsOnTarget=line.split()[3]
+#dcsMeanDepth=line.split()[22]
+dcsMeanDepth=line.split()[33]
+#dcsMaxDepth=line.split()[24]
+dcsMaxDepth=line.split()[35]
+#dcsUncovered=line.split()[28]
+dcsUncovered=line.split()[43]
 hsDcsFile.close()
 
 sys.stderr.write("Processing countmuts")
