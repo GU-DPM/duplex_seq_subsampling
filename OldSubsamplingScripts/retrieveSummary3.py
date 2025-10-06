@@ -154,7 +154,8 @@ for line in cmFile:
 	elif "Total deletion events:" in line:
 		dels=line.strip().split()[3]
 
-totalNt = subprocess.run(['wc', '-l', "%s.region.pileup" % (index)], capture_output=True, text=True)
+pileup_count = subprocess.run(['wc', '-l', "%s.region.pileup" % (index)], capture_output=True, text=True)
+totalNt = int(pileup_count.stdout.strip().split()[0])
 
 cmFile.close()
 sys.stdout.write("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n" % (index,rawReads,dcsOnTarget,dcsMeanDepth,dcsMaxDepth,dcsUncovered,totalNt,totalMuts,AtoT,AtoC,AtoG,TtoA,TtoC,TtoG,CtoA,CtoT,CtoG,GtoA,GtoT,GtoC,ins,dels))
