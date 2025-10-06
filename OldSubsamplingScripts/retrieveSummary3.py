@@ -86,6 +86,7 @@ line = hsDcsFile.readline()
 while lineCtr < 7:
 	line = hsDcsFile.readline()
 	lineCtr += 1
+rawReads=line.split('\t')[25]
 #dcsOnTarget=line.split()[18]
 dcsOnTarget=line.split('\t')[3]
 #dcsMeanDepth=line.split()[22]
