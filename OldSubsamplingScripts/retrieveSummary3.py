@@ -39,10 +39,10 @@ d=100
 
 sys.stderr.write("Getting read counts")
 # get read counts
-#~ rawReads = pysam.flagstat("%s.sort.bam" % (index)).split('\n')[0].split()[0]
-#~ sscsFlagstat=pysam.flagstat("%s_mem.sscs.sort.bam" % (index)).split('\n')
-#~ sscsReads=sscsFlagstat[0].split()[0]
-#~ mappedSscs=sscsFlagstat[4].split()[0]
+rawReads = pysam.flagstat("%s.sort.bam" % (index)).split('\n')[0].split()[0]
+sscsFlagstat=pysam.flagstat("%s_mem.sscs.sort.bam" % (index)).split('\n')
+sscsReads=sscsFlagstat[0].split()[0]
+mappedSscs=sscsFlagstat[4].split()[0]
 rawReads=0
 sscsReads=0
 mappedSscs=0
@@ -87,13 +87,13 @@ while lineCtr < 7:
 	line = hsDcsFile.readline()
 	lineCtr += 1
 #dcsOnTarget=line.split()[18]
-dcsOnTarget=line.split()[3]
+dcsOnTarget=line.split('\t')[3]
 #dcsMeanDepth=line.split()[22]
-dcsMeanDepth=line.split()[33]
+dcsMeanDepth=line.split('\t')[33]
 #dcsMaxDepth=line.split()[24]
-dcsMaxDepth=line.split()[35]
+dcsMaxDepth=line.split('\t')[35]
 #dcsUncovered=line.split()[28]
-dcsUncovered=line.split()[43]
+dcsUncovered=line.split('\t')[43]
 hsDcsFile.close()
 
 sys.stderr.write("Processing countmuts")
