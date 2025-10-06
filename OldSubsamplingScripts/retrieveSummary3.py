@@ -43,9 +43,9 @@ sys.stderr.write("Getting read counts")
 #sscsFlagstat=pysam.flagstat("%s_mem.sscs.sort.bam" % (index)).split('\n')
 #sscsReads=sscsFlagstat[0].split()[0]
 #mappedSscs=sscsFlagstat[4].split()[0]
-#rawReads=0
-#sscsReads=0
-#mappedSscs=0
+rawReads=0
+sscsReads=0
+mappedSscs=0
 
 dcsFlagstat=pysam.flagstat("%s.sort.bam" % (index)).split('\n')
 dcsReads=dcsFlagstat[0].split()[0]
